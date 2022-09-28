@@ -1,33 +1,54 @@
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet, NavLink } from 'react-router-dom';
+import { React, Component } from "react";
+import { ContextoDeAutenticacion } from "./ContextoDeAutenticacion";
 
-const Layout = () => {
+class Layout extends Component {
 
-    const style = ({ isActive }) => ({
-        fontWeight: isActive ? "bold" : "normal",
-        padding: "20px",
-        textDecoration: "none",
-    });
+    static contextType = ContextoDeAutenticacion;
 
-    return (
-        <>
-            <h3>Arquetipo de aplicacion React</h3>
+    componentDidMount() {
+        const valoresDelContexto = this.context;
+        console.log(valoresDelContexto); // {token: null, onLogin: ƒ, onLogout: ƒ}
+    }
 
-            <nav
-                style={{
+    render() {
+        const style = ({ isActive }) => ({
+            fontWeight: isActive ? 'bold' : 'normal',
+            padding: '20px',
+            textDecoration: 'none',
+        });
+
+        const valoresDelContexto = this.context;
+
+        return (
+            <>
+                <h3>Arquetipo de aplicación React</h3>
+
+                <nav
+                    style={{
                     borderBottom: 'solid 1px',
-                    paddingBottom: '1rem',                    
-                }}
-            >
+                    paddingBottom: '1rem',
+                    }}
+                >
+
                 <NavLink to="/login" style={style}>Login</NavLink>
                 <NavLink to="/dashboard" style={style}>Dashboard</NavLink>
-            </nav>
-            
-            <main style={{ paddings: '20px' }}>
-                Integrando componentes
-                <Outlet />
-            </main>
-        </>
-    );
-};
+                <NavLink to="/admin" style={style}>Administrador</NavLink>
+                
+                {valoresDelContexto.token && (
+                    <button type='button' onClick={valoresDelContexto.onLogout}>
+                        Cerrar sesión
+                    </button>
+                )}
 
+                </nav>
+
+                <main style={{ paddings: '20px' }}>
+                    Integrando componentes
+                    <Outlet />
+                </main>
+            </>
+        );
+    }
+}
 export default Layout;
