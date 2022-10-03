@@ -1,3 +1,16 @@
+* {
+  margin:0;
+  padding:0;
+  overflow-x: hidden;
+}
+
+.background {
+  background: rgb(185, 185, 185);
+  background-blend-mode: darken;
+  background-size: cover;
+}
+
+/*
 .App {
   text-align: center;
 }
@@ -36,3 +49,4 @@
     transform: rotate(360deg);
   }
 }
+*/

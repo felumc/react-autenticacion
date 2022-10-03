@@ -1,38 +1,26 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
+import Inicio from './componentes/Inicio/Inicio';
+import Nosotros from './componentes/Nosotros/Nosotros';
 import Login from './componentes/Login';
 import Dashboard from './componentes/Dashboard'
-import Layout from './componentes/Layout';
+import Layout from './componentes/Layout/Layout';
 import RutaNoEncontrada from './componentes/RutaNoEncontrada';
-import * as React from 'react';
-import ProveedorDeAutenticacion from './componentes/ProveedorDeAutenticacion';
-import ProtegerRuta from './componentes/ProtegerRuta';
-import Administrador from './componentes/Administrador';
 
 function App() {
   return (
-    <ProveedorDeAutenticacion>
+    <>
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<Login />} />
+          <Route index element={<Inicio />} />
+          <Route path='/inicio' element={<Inicio />} />
+          <Route path='/nosotros' element={<Nosotros />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/dashboard'
-            element={
-              <ProtegerRuta>
-                <Dashboard />
-              </ProtegerRuta>
-            } />
-          <Route path='/admin'
-            element={
-              <ProtegerRuta>
-                <Administrador />
-              </ProtegerRuta>
-            } />
+          <Route path='/dashboard' element={<Dashboard />} />
           <Route path='*' element={<RutaNoEncontrada />} />
         </Route>
       </Routes>
-    </ProveedorDeAutenticacion>
+    </>
   );
 }
-
 export default App;

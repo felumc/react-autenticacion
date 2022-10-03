@@ -1,8 +1,8 @@
 const RutaNoEncontrada = () => {
-    return(
+    return (
         <h3>
             Página no encontrada
         </h3>
     );
 };
-export default RutaNoEncontrada;    
+export default RutaNoEncontrada;
