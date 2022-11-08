@@ -16,7 +16,7 @@ function App() {
           <Route path='/inicio' element={<Inicio />} />
           <Route path='/nosotros' element={<Nosotros />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/admin' element={<Dashboard />} />
           <Route path='*' element={<RutaNoEncontrada />} />
         </Route>
       </Routes>

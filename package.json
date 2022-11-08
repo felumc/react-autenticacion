@@ -10,7 +10,9 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "axios": "^0.21.1",
+    "encrypt-storage": "2.12.12"
   },
   "scripts": {
     "start": "react-scripts start",
